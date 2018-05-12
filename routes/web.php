@@ -31,3 +31,25 @@ $this->get('/password/reset/{token}', 'Auth\ResetPasswordController@showResetFor
 $this->post('/password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+/* Backend */
+Route::group(['prefix' => 'backend'], function () {
+    /* Backend - Add Manufacturer */
+    Route::get('/add/manufacturer', 'BackendController@getAddManufacturer')->name('add-manufacturer');
+    Route::post('/add/manufacturer', 'BackendController@postAddManufacturer');
+    /* /Backend - Add Manufacturer */
+
+    /* Backend - Add Model */
+    Route::get('/add/model', 'BackendController@getAddModel')->name('add-model');
+    Route::post('/add/model', 'BackendController@postAddModel');
+    /* /Backend - Add Model */
+
+    /* Backend - View Inventory */
+    Route::get('/view/inventory', 'BackendController@getViewInventory')->name('view-inventory');
+    /* /Backend - View Inventory */
+
+    /* Sold Car Model */
+    Route::get('/sold/model/{id}', 'BackendController@SoldCarModel');
+    /* /Sold Car Model */
+});
+/* /Backend */
