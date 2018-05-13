@@ -23,7 +23,7 @@ class CarInventoryDataTable extends DataTable
                 ->addColumn('image', function ($data) {
                     return '<img width="150px" src='.asset('/images/'.$data->image).'></a>';
                 })
-                ->rawColumns(['action', 'image']);
+                ->rawColumns(['action', 'image', 'note']);
     }
 
     /**
@@ -49,10 +49,10 @@ class CarInventoryDataTable extends DataTable
         return $this->builder()
                     ->addColumn(['data' => 'id', 'name' => 'id', 'title' => 'SNo'])
                     ->addColumn(['data' => 'name', 'name' => 'name', 'title' => 'Name'])
+                    ->addColumn(['data' => 'image', 'name' => 'image', 'title' => 'Image'])
                     ->addColumn(['data' => 'manufacturing_year', 'name' => 'manufacturing_year', 'title' => 'Manufacturing Year'])
                     ->addColumn(['data' => 'registration_number', 'name' => 'registration_number', 'title' => 'Registration Number'])
                     ->addColumn(['data' => 'note', 'name' => 'note', 'title' => 'Note'])
-                    ->addColumn(['data' => 'image', 'name' => 'image', 'title' => 'Image'])
                     ->minifiedAjax()
                     ->addAction(['width' => '80px'])
                     ->parameters([ 'dom' => 'Bflrtip',

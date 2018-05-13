@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@push('h-scripts')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.min.css" />
+@endpush
 @section('content')
     <div class="container">
         <div class="row margin-top-30">
