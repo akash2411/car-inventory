@@ -8,16 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Mini Car Inventory System') }}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @stack('scripts')
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker3.min.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/min/dropzone.min.css" rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10,b-1.1.0,b-colvis-1.1.0,b-print-1.1.0,r-2.0.0,se-1.1.0/datatables.min.css"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    @stack('h-scripts')
 </head>
 <body>
     <div id="app">
@@ -35,16 +32,18 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('app.name', 'Mini Car Inventory System') }}
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        <li><a href="{{ route('add-manufacturer') }}">Add Car Manufacturer</a></li>
-                        <li><a href="{{ route('add-model') }}">Add Car Model</a></li>
-                        <li><a href="{{ route('view-inventory') }}">View Inventory</a></li>
+                        @if(Auth::check())
+                            <li><a href="{{ route('add-manufacturer') }}">Add Car Manufacturer</a></li>
+                            <li><a href="{{ route('add-model') }}">Add Car Model</a></li>
+                            <li><a href="{{ route('view-inventory') }}">View Inventory</a></li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -83,6 +82,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 @stack('scripts')
 </body>
 </html>

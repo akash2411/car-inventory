@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@push('h-scripts')
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/s/bs/dt-1.10.10,b-1.1.0,b-colvis-1.1.0,b-print-1.1.0,r-2.0.0,se-1.1.0/datatables.min.css"/>
+@endpush
 @section('content')
 
     <div class="container spark-screen">
